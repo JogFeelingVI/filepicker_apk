@@ -1,7 +1,7 @@
 # @Author: JogFeelingVI
 # @Date:   2026-02-02 22:28:39
 # @Last Modified by:   JogFeelingVI
-# @Last Modified time: 2026-02-02 22:30:40
+# @Last Modified time: 2026-02-03 14:07:17
 name: APK Build
 
 on:
@@ -30,10 +30,10 @@ env:
   PYTHONUTF8: 1
 
   # Disables rich text formatting in Flet CLI output
-  FLET_CLI_NO_RICH_OUTPUT: 0
+  FLET_CLI_NO_RICH_OUTPUT: 1
 
   # Disables progress bars when using UV
-  UV_NO_PROGRESS: 0
+  UV_NO_PROGRESS: 1
 
 jobs:
   build:

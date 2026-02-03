@@ -2,9 +2,8 @@
 # @Author: JogFeelingVI
 # @Date:   2026-02-03 04:18:31
 # @Last Modified by:   JogFeelingVI
-# @Last Modified time: 2026-02-03 05:47:40
+# @Last Modified time: 2026-02-03 14:07:01
 import traceback
-from turtle import bgcolor
 import flet as ft
 import random
 import os
