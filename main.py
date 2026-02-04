@@ -2,7 +2,7 @@
 # @Author: JogFeelingVI
 # @Date:   2026-02-03 04:18:31
 # @Last Modified by:   JogFeelingVI
-# @Last Modified time: 2026-02-03 14:07:01
+# @Last Modified time: 2026-02-04 20:00:02
 import traceback
 import flet as ft
 import random
@@ -34,7 +34,7 @@ def main(page: ft.Page):
     file_picker = ft.FilePicker()
     content_bytes = content.encode("utf-8")
     is_mobile_or_web = page.web or page.platform in [
-        ft.PagePlatform.ANDROID,
+        # ft.PagePlatform.ANDROID,
         ft.PagePlatform.IOS,
     ]
     
@@ -54,7 +54,9 @@ def main(page: ft.Page):
             selected_files.value = (
                 ", ".join(map(lambda f: f.name, files)) if files else "Cancelled!"
             )
-            if files and is_mobile_or_web:
+            if not files:
+                return
+            if is_mobile_or_web:
                 file_picker.on_upload = handle_on_upload
                 upfiles = [
                     ft.FilePickerUploadFile(
@@ -65,6 +67,10 @@ def main(page: ft.Page):
                     )
                 ]
                 await file_picker.upload(upfiles)
+            else:
+                with open(files[0].path, "r", encoding="utf-8") as f:
+                    markdown.value = f.read()
+                    markdown.update()
         except Exception:
             traceback.print_exc()
 
